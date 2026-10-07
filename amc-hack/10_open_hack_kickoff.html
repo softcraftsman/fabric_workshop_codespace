@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Open Hack Kickoff</title>
+<style>
+body { font: 16px/1.6 system-ui, sans-serif; max-width: 52rem; margin: 2rem auto; padding: 0 1rem; color: #1b1b1b; }
+h1, h2, h3 { line-height: 1.25; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c8c8c8; padding: .4rem .7rem; text-align: left; vertical-align: top; }
+th { background: #f3f3f3; }
+code { background: #f3f3f3; padding: .1rem .3rem; border-radius: 3px; }
+pre { background: #f3f3f3; padding: 1rem; overflow-x: auto; border-radius: 4px; }
+pre code { padding: 0; background: none; }
+blockquote { margin-left: 0; padding-left: 1rem; border-left: 4px solid #c8c8c8; color: #444; }
+.admonition { border-left: 4px solid #0078d4; background: #eef6fc; padding: .5rem 1rem; margin: 1rem 0; }
+.admonition-title { font-weight: 600; margin: 0 0 .25rem; }
+nav { margin-bottom: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="index.html">All pages</a></nav>
+<h1>Open Hack Kickoff</h1>
+<p>You have completed the four guided labs. Now you apply them. Each team picks
+one healthcare-quality challenge (page 11) and builds its own solution. Use the
+labs as your reference:</p>
+<table>
+<thead>
+<tr>
+<th>Skill</th>
+<th>Where you learned it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Explore data with Copilot</td>
+<td><a href="04_lab1_notebook_ai.html">Lab 1</a></td>
+</tr>
+<tr>
+<td>Prepare a semantic model for AI</td>
+<td><a href="07_lab2_ai_ready_model.html">Lab 2</a></td>
+</tr>
+<tr>
+<td>Build a report</td>
+<td><a href="08_lab3_report.html">Lab 3</a></td>
+</tr>
+<tr>
+<td>Build a Data Agent</td>
+<td><a href="09_lab4_data_agent.html">Lab 4</a></td>
+</tr>
+</tbody>
+</table>
+<h2>Workspace preparation</h2>
+<p>Each team receives its own Fabric-capacity workspace with:</p>
+<ul>
+<li>Contributor access for team members</li>
+<li>Git integration to a team-specific repository folder or branch</li>
+<li>Build permission on the shared semantic models</li>
+<li>Read access to the required Gold tables</li>
+<li>Permission to create notebooks, semantic models, reports, ontologies, agents,
+  event-driven items, and experiments</li>
+</ul>
+<p>Recommended workspace names:</p>
+<ul>
+<li><code>AMC Readmissions</code></li>
+<li><code>AMC Mortality</code></li>
+<li><code>AMC Patient Experience</code></li>
+<li><code>AMC Safety</code></li>
+<li><code>AMC Preventive Care</code></li>
+<li><code>AMC Access and Effectiveness</code></li>
+</ul>
+<h2>Two supported starting paths</h2>
+<h3>Starter path</h3>
+<p>Connect a thin Power BI report or Data Agent to <strong>AMC Shared
+Foundation</strong>. This path is appropriate when the team wants to focus on report,
+agent, or Fabric IQ skills without rebuilding the model.</p>
+<h3>Advanced path</h3>
+<p>Create a team-owned Direct Lake semantic model over the assigned Gold fact and
+the shared dimensions. This path is appropriate when semantic-model design is
+part of the team's learning objective.</p>
+<p>The advanced model must preserve the shared table grains, keys, provenance,
+and CMS definitions.</p>
+<h2>Suggested open-hack sequence</h2>
+<ol>
+<li>Inspect the assigned fact table and its grain (as in Lab 1).</li>
+<li>Connect to the shared semantic model or create a domain model (as in Lab 2).</li>
+<li>Reconcile baseline counts with the shared model.</li>
+<li>Define the team's primary question and success metric.</li>
+<li>Build one trustworthy analytical view before adding AI.</li>
+<li>Add a Fabric item that demonstrates a new capability.</li>
+<li>Document assumptions and provenance.</li>
+<li>Prepare a repeatable demo path.</li>
+</ol>
+<h2>Required team metadata</h2>
+<p>Every published measure should include:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>Unique, business-readable name</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>What the measure means</td>
+</tr>
+<tr>
+<td>Grain</td>
+<td>Level at which it is valid</td>
+</tr>
+<tr>
+<td>Numerator</td>
+<td>Included records or values</td>
+</tr>
+<tr>
+<td>Denominator</td>
+<td>Eligible population</td>
+</tr>
+<tr>
+<td>Exclusions</td>
+<td>Explicit exclusions</td>
+</tr>
+<tr>
+<td>Directionality</td>
+<td>Higher, lower, or target is better</td>
+</tr>
+<tr>
+<td>Provenance</td>
+<td>CMS, Synthea, synthetic supplemental, or derived</td>
+</tr>
+<tr>
+<td>Owner</td>
+<td>Responsible team</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>Experimental, reviewed, or approved</td>
+</tr>
+</tbody>
+</table>
+<h2>Validation checklist</h2>
+<ul>
+<li>Fact counts reconcile with the assigned Gold table.</li>
+<li>Dimension filters do not unexpectedly remove fact rows.</li>
+<li>Rates use explicit numerators and denominators.</li>
+<li>Measures do not sum percentages or ratings.</li>
+<li>Reporting-period filters are visible.</li>
+<li>CMS values use the exact labels <strong>Published Overall Star Rating</strong>, <strong>Demo
+  Calculated Star Score</strong>, and <strong>Demo Scenario Score</strong>, and are visually
+  distinct.</li>
+<li>Synthetic events are labeled.</li>
+<li>Reports and agents do not imply that synthetic patient events caused real
+  CMS facility performance.</li>
+<li>Patient or provider attributes are used appropriately.</li>
+<li>Provider analysis is not presented as individual performance evaluation.</li>
+<li>The demo works from a clean browser session.</li>
+<li>Source changes are committed to Git.</li>
+</ul>
+<h2>Demo checklist</h2>
+<p>Each team should be able to explain:</p>
+<ol>
+<li>The healthcare-quality problem it selected.</li>
+<li>The Fabric items it created.</li>
+<li>The data and measures used.</li>
+<li>The insight or decision enabled.</li>
+<li>How provenance and limitations are communicated.</li>
+<li>How the output could participate in the Day 2 executive experience.</li>
+</ol>
+<p><strong>Next:</strong> <a href="11_open_hack_challenges.html">11 Open hack challenges</a></p>
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+document.querySelectorAll("pre > code.language-mermaid").forEach((code) => {
+  const div = document.createElement("div");
+  div.className = "mermaid";
+  div.textContent = code.textContent;
+  code.parentElement.replaceWith(div);
+});
+mermaid.initialize({ startOnLoad: true });
+</script>
+</body>
+</html>

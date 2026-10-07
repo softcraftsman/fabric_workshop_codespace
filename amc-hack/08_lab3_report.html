@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Lab 3: Build a Report with Copilot</title>
+<style>
+body { font: 16px/1.6 system-ui, sans-serif; max-width: 52rem; margin: 2rem auto; padding: 0 1rem; color: #1b1b1b; }
+h1, h2, h3 { line-height: 1.25; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c8c8c8; padding: .4rem .7rem; text-align: left; vertical-align: top; }
+th { background: #f3f3f3; }
+code { background: #f3f3f3; padding: .1rem .3rem; border-radius: 3px; }
+pre { background: #f3f3f3; padding: 1rem; overflow-x: auto; border-radius: 4px; }
+pre code { padding: 0; background: none; }
+blockquote { margin-left: 0; padding-left: 1rem; border-left: 4px solid #c8c8c8; color: #444; }
+.admonition { border-left: 4px solid #0078d4; background: #eef6fc; padding: .5rem 1rem; margin: 1rem 0; }
+.admonition-title { font-weight: 600; margin: 0 0 .25rem; }
+nav { margin-bottom: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="index.html">All pages</a></nav>
+<h1>Lab 3: Build a Report with Copilot</h1>
+<p><strong>Goal:</strong> Turn your semantic model into a clear report page, and see how the
+preparation in Lab 2 improves Copilot's output.</p>
+<p><strong>Time:</strong> 30–40 minutes.</p>
+<p><strong>You will build:</strong> A one-page Readmissions report.</p>
+<p><strong>You need:</strong> <code>Readmissions Model</code> from Lab 2, and a review of the labeling
+rules on page 06.</p>
+<h2>Part A: Create the report</h2>
+<ol>
+<li>In your team workspace, open <code>Readmissions Model</code> and choose <strong>Create a
+   report</strong> (or create a new report and connect it to the model).</li>
+<li>Name the report <code>Readmissions Overview</code>.</li>
+</ol>
+<h2>Part B: Generate a page with Copilot</h2>
+<ol>
+<li>Open the <strong>Copilot</strong> pane in the report.</li>
+<li>Ask:</li>
+</ol>
+<blockquote>
+<p>Create a page that shows the 30-Day Readmission Rate by facility, the
+trend over time by calendar year, and the top diagnoses by eligible
+discharges.</p>
+</blockquote>
+<ol start="3">
+<li>Review what Copilot created. Check each visual against what you expect from
+   Lab 1.</li>
+</ol>
+<h2>Part C: Refine</h2>
+<p>Use prompts or the formatting pane to make these changes:</p>
+<ol>
+<li>Add a card for <strong>Eligible Discharges</strong> and one for <strong>30-Day Readmission
+   Rate</strong>.</li>
+<li>Sort the facility chart so the highest rate appears first.</li>
+<li>Add a slicer for <code>calendar_year</code> and one for <code>condition_category</code>.</li>
+<li>Give every visual a plain-language title.</li>
+</ol>
+<p>Ask Copilot to suggest a one-sentence summary of the page, then edit it so it is
+accurate.</p>
+<h2>Part D: Label it correctly</h2>
+<p>Add a visible text box:</p>
+<blockquote>
+<p>Patient-level readmission events in this report are <strong>synthetic</strong> and do not
+represent real hospital outcomes.</p>
+</blockquote>
+<p>Do not use the words "CMS Star Rating" anywhere in this report. If you later
+show CMS values, use the exact labels <strong>Published Overall Star Rating</strong>, <strong>Demo
+Calculated Star Score</strong>, and <strong>Demo Scenario Score</strong>.</p>
+<h2>Part E: See the effect of preparation</h2>
+<p>Ask Copilot the same question twice:</p>
+<ol>
+<li>Once with the wording from Lab 2's descriptions.</li>
+<li>Once using vague wording, such as "Which hospitals are doing badly?"</li>
+</ol>
+<p>Notice how well the measure names and instructions guide the answer.</p>
+<h2>Part F: Validate</h2>
+<ul>
+<li>[ ] Totals match Lab 1 and Lab 2.</li>
+<li>[ ] Rates are shown as percentages, not summed.</li>
+<li>[ ] The reporting period filter is visible.</li>
+<li>[ ] The synthetic-data label is visible.</li>
+<li>[ ] The report opens correctly in a private browser window.</li>
+</ul>
+<h2>Expected result</h2>
+<p>A published report that matches your earlier numbers and carries the right
+labels.</p>
+<h2>If you get stuck</h2>
+<ul>
+<li><strong>Copilot builds the wrong visual:</strong> Rephrase with the exact measure and
+  column names.</li>
+<li><strong>Visuals are blank:</strong> Check that the report is connected to your model and
+  that you are not filtering everything out.</li>
+<li><strong>Still stuck:</strong> Open the checkpoint report from your facilitator.</li>
+</ul>
+<p><strong>Next:</strong> <a href="09_lab4_data_agent.html">09 Lab 4: Build a Data Agent</a></p>
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+document.querySelectorAll("pre > code.language-mermaid").forEach((code) => {
+  const div = document.createElement("div");
+  div.className = "mermaid";
+  div.textContent = code.textContent;
+  code.parentElement.replaceWith(div);
+});
+mermaid.initialize({ startOnLoad: true });
+</script>
+</body>
+</html>

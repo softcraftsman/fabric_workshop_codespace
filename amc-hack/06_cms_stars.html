@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>CMS Overall Hospital Quality Star Rating Guidance</title>
+<style>
+body { font: 16px/1.6 system-ui, sans-serif; max-width: 52rem; margin: 2rem auto; padding: 0 1rem; color: #1b1b1b; }
+h1, h2, h3 { line-height: 1.25; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c8c8c8; padding: .4rem .7rem; text-align: left; vertical-align: top; }
+th { background: #f3f3f3; }
+code { background: #f3f3f3; padding: .1rem .3rem; border-radius: 3px; }
+pre { background: #f3f3f3; padding: 1rem; overflow-x: auto; border-radius: 4px; }
+pre code { padding: 0; background: none; }
+blockquote { margin-left: 0; padding-left: 1rem; border-left: 4px solid #c8c8c8; color: #444; }
+.admonition { border-left: 4px solid #0078d4; background: #eef6fc; padding: .5rem 1rem; margin: 1rem 0; }
+.admonition-title { font-weight: 600; margin: 0 0 .25rem; }
+nav { margin-bottom: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="index.html">All pages</a></nav>
+<h1>CMS Overall Hospital Quality Star Rating Guidance</h1>
+<h2>Authoritative versus demonstration values</h2>
+<p>The platform exposes three distinct concepts:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Published Overall Star Rating</td>
+<td>Authoritative rating published by CMS</td>
+</tr>
+<tr>
+<td>Demo Calculated Star Score</td>
+<td>AMC demonstration score derived from available CMS results</td>
+</tr>
+<tr>
+<td>Demo Scenario Score</td>
+<td>Illustrative improvement scenario</td>
+</tr>
+</tbody>
+</table>
+<p>The latter two are not reproductions or forecasts of an official CMS rating.
+Reports and agents must use these labels explicitly.</p>
+<h2>Current CMS methodology concepts</h2>
+<p>The April 2026 CMS methodology uses five groups:</p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th style="text-align: right;">Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mortality</td>
+<td style="text-align: right;">22%</td>
+</tr>
+<tr>
+<td>Safety of Care</td>
+<td style="text-align: right;">22%</td>
+</tr>
+<tr>
+<td>Readmission</td>
+<td style="text-align: right;">22%</td>
+</tr>
+<tr>
+<td>Patient Experience</td>
+<td style="text-align: right;">22%</td>
+</tr>
+<tr>
+<td>Timely and Effective Care</td>
+<td style="text-align: right;">12%</td>
+</tr>
+</tbody>
+</table>
+<p>At a high level, CMS:</p>
+<ol>
+<li>Selects eligible measures for the rating release.</li>
+<li>Standardizes measures and aligns directionality.</li>
+<li>Calculates measure-group scores.</li>
+<li>Redistributes weights when a hospital lacks an eligible group.</li>
+<li>Combines group scores into a summary score.</li>
+<li>Assigns hospitals to three-, four-, or five-group peer groups.</li>
+<li>Uses clustering within peer groups to assign one through five stars.</li>
+<li>Applies methodology-version-specific rules, including the 2026 Safety of
+   Care restriction where applicable.</li>
+</ol>
+<p>Always consult the methodology document associated with the specific rating
+release. Do not assume that measure inclusion, periods, clustering boundaries,
+or special rules remain constant.</p>
+<h2>Platform limitation</h2>
+<p>The current <code>scorecard.fact_star_rating_scorecard</code> calculated score averages
+available performance percentiles and maps them to a one-to-five scale. It
+does not currently perform the complete CMS standardization, weighting,
+peer-group, clustering, or safety-restriction process.</p>
+<p>The shared model therefore treats:</p>
+<ul>
+<li><code>published_overall_star_score</code> as authoritative.</li>
+<li><code>calculated_overall_star_score</code> as a demo calculation.</li>
+<li><code>scenario_score</code> as an illustrative scenario.</li>
+</ul>
+<h2>Team rules</h2>
+<ul>
+<li>Do not rename a demo score to “CMS Star Rating.”</li>
+<li>Do not imply that a half-point scenario produces an official rating change.</li>
+<li>Preserve measure directionality.</li>
+<li>Keep reporting periods and source releases visible.</li>
+<li>Avoid averaging unrelated measure units without standardization.</li>
+<li>Do not combine synthetic patient outcomes with real CMS facility results as
+  if one caused the other.</li>
+</ul>
+<h2>Future methodology replica</h2>
+<p>A defensible CMS methodology replica should materialize these items in Gold:</p>
+<ul>
+<li>Methodology version and effective release</li>
+<li>Included measures and reporting periods</li>
+<li>Eligibility and suppression rules</li>
+<li>Standardized measure values</li>
+<li>Group scores</li>
+<li>Available-group count and redistributed weights</li>
+<li>Summary score</li>
+<li>Peer-group assignment</li>
+<li>Cluster boundaries and assigned rating</li>
+<li>Safety restriction result</li>
+<li>Comparison with the published rating</li>
+</ul>
+<p>Complex annual standardization and clustering should be calculated upstream,
+not implemented only as interactive DAX.</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://qualitynet.cms.gov/inpatient/public-reporting/overall-ratings/resources">CMS Overall Hospital Quality Star Rating resources</a></li>
+<li><a href="https://data.cms.gov/provider-data/topics/hospitals/overall-hospital-quality-star-rating/">CMS Provider Data Catalog: Overall hospital quality star rating</a></li>
+</ul>
+<p><strong>Next:</strong> <a href="07_lab2_ai_ready_model.html">07 Lab 2: Make a semantic model AI-ready</a></p>
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+document.querySelectorAll("pre > code.language-mermaid").forEach((code) => {
+  const div = document.createElement("div");
+  div.className = "mermaid";
+  div.textContent = code.textContent;
+  code.parentElement.replaceWith(div);
+});
+mermaid.initialize({ startOnLoad: true });
+</script>
+</body>
+</html>

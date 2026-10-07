@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Open Hack Challenges</title>
+<style>
+body { font: 16px/1.6 system-ui, sans-serif; max-width: 52rem; margin: 2rem auto; padding: 0 1rem; color: #1b1b1b; }
+h1, h2, h3 { line-height: 1.25; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c8c8c8; padding: .4rem .7rem; text-align: left; vertical-align: top; }
+th { background: #f3f3f3; }
+code { background: #f3f3f3; padding: .1rem .3rem; border-radius: 3px; }
+pre { background: #f3f3f3; padding: 1rem; overflow-x: auto; border-radius: 4px; }
+pre code { padding: 0; background: none; }
+blockquote { margin-left: 0; padding-left: 1rem; border-left: 4px solid #c8c8c8; color: #444; }
+.admonition { border-left: 4px solid #0078d4; background: #eef6fc; padding: .5rem 1rem; margin: 1rem 0; }
+.admonition-title { font-weight: 600; margin: 0 0 .25rem; }
+nav { margin-bottom: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="index.html">All pages</a></nav>
+<h1>Open Hack Challenges</h1>
+<p>Teams own the analytical and experiential layer for their assigned domain.
+The examples below are starting points, not required implementations.</p>
+<p>Each challenge builds on the guided labs. The Readmissions team can start from
+the lab results directly; other teams repeat the same steps on their own fact
+table.</p>
+<table>
+<thead>
+<tr>
+<th>Lab skill</th>
+<th>Apply it to your domain by...</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lab 1: Explore</td>
+<td>Profiling your primary fact table and its grain</td>
+</tr>
+<tr>
+<td>Lab 2: AI-ready model</td>
+<td>Building a model over your fact and the shared dimensions</td>
+</tr>
+<tr>
+<td>Lab 3: Report</td>
+<td>Building a report that answers your team's primary question</td>
+</tr>
+<tr>
+<td>Lab 4: Data Agent</td>
+<td>Building an agent for your domain's questions</td>
+</tr>
+</tbody>
+</table>
+<h2>Readmissions</h2>
+<p>Primary data: <code>quality.fact_readmission</code></p>
+<p>Potential questions:</p>
+<ul>
+<li>Which diagnoses, populations, and facilities drive readmissions?</li>
+<li>Where are post-discharge emergency visits increasing?</li>
+<li>Which cohorts have the greatest preventable-risk opportunity?</li>
+</ul>
+<p>Suggested Fabric work:</p>
+<ul>
+<li>Domain semantic model and readmission measures</li>
+<li>Driver-analysis report</li>
+<li>Risk-cohort notebook or ML experiment</li>
+<li>Readmission data agent</li>
+<li>Intervention scenario or outreach workflow</li>
+</ul>
+<h2>Mortality</h2>
+<p>Primary data: <code>quality.fact_mortality</code></p>
+<p>Potential questions:</p>
+<ul>
+<li>What drives observed-to-expected mortality?</li>
+<li>Which populations have elevated risk?</li>
+<li>How do sepsis and intensive-care indicators affect patterns?</li>
+</ul>
+<p>Suggested Fabric work:</p>
+<ul>
+<li>Observed-to-expected model</li>
+<li>Risk-segmentation report</li>
+<li>Explainable predictive experiment</li>
+<li>Mortality ontology extension</li>
+<li>Clinical-quality agent</li>
+</ul>
+<p>The <code>quality.fact_mortality.expected_mortality</code> value is produced by a
+demonstration risk model and must not be described as a validated clinical
+risk-adjustment methodology.</p>
+<h2>Patient Experience</h2>
+<p>Primary data: <code>quality.fact_hcahps</code></p>
+<p>Potential questions:</p>
+<ul>
+<li>Which experience dimensions are declining?</li>
+<li>What differs by facility or service line?</li>
+<li>What themes are present in synthetic comments?</li>
+</ul>
+<p>Suggested Fabric work:</p>
+<ul>
+<li>HCAHPS semantic extension</li>
+<li>Experience trend report</li>
+<li>Text-theme or sentiment notebook</li>
+<li>Patient-experience ontology</li>
+<li>Experience data agent</li>
+</ul>
+<h2>Safety</h2>
+<p>Primary data: <code>quality.fact_patient_safety</code></p>
+<p>Potential questions:</p>
+<ul>
+<li>Which event types and harm levels are emerging?</li>
+<li>Where are HAI, fall, pressure-injury, or medication risks concentrated?</li>
+<li>Which signals should trigger additional investigation?</li>
+</ul>
+<p>Suggested Fabric work:</p>
+<ul>
+<li>Safety-event model and report</li>
+<li>Anomaly-detection experiment</li>
+<li>Fabric Activator or event-driven demonstration</li>
+<li>Safety ontology extension</li>
+<li>Safety investigation agent</li>
+</ul>
+<h2>Preventive Care</h2>
+<p>Primary data: <code>quality.fact_preventive_care</code></p>
+<p>Potential questions:</p>
+<ul>
+<li>Which populations have open care gaps?</li>
+<li>Which outreach cohorts should be prioritized?</li>
+<li>What factors are associated with lower completion?</li>
+</ul>
+<p>Suggested Fabric work:</p>
+<ul>
+<li>Care-gap semantic model</li>
+<li>Outreach prioritization notebook</li>
+<li>Population-health report</li>
+<li>Preventive-care agent</li>
+<li>Intervention workflow</li>
+</ul>
+<p>Preventive Care is a valuable enterprise domain but is not a separate group in
+the CMS Overall Hospital Quality Star Rating. Applicable official measures
+should be mapped to their CMS-designated group.</p>
+<h2>Access and Effectiveness</h2>
+<p>Primary data: <code>quality.fact_access_effectiveness</code></p>
+<p>Potential questions:</p>
+<ul>
+<li>Which specialties or facilities have the longest waits?</li>
+<li>Where do referrals fail to convert?</li>
+<li>What contributes to no-shows and treatment delays?</li>
+</ul>
+<p>Suggested Fabric work:</p>
+<ul>
+<li>Access semantic model</li>
+<li>Bottleneck report</li>
+<li>Scheduling or referral analysis notebook</li>
+<li>Operations or Data Agent</li>
+<li>Event-driven access alert</li>
+</ul>
+<h2>Day 2 integration contract</h2>
+<p>Each team should publish:</p>
+<ul>
+<li>One report or user experience</li>
+<li>One reusable semantic or analytical artifact</li>
+<li>One concise set of reviewed findings</li>
+<li>One machine-consumable capability, such as an agent, ontology extension,
+  notebook function, API, or MCP tool</li>
+<li>A list of assumptions, limitations, and provenance</li>
+</ul>
+<p>The executive integration team combines these outputs. It should not need to
+reverse-engineer team-specific metric definitions.</p>
+<p>Across every domain, teams must not imply that synthetic patient events caused
+real CMS facility performance.</p>
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+document.querySelectorAll("pre > code.language-mermaid").forEach((code) => {
+  const div = document.createElement("div");
+  div.className = "mermaid";
+  div.textContent = code.textContent;
+  code.parentElement.replaceWith(div);
+});
+mermaid.initialize({ startOnLoad: true });
+</script>
+</body>
+</html>

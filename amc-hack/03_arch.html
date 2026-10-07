@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Overall Architecture</title>
+<style>
+body { font: 16px/1.6 system-ui, sans-serif; max-width: 52rem; margin: 2rem auto; padding: 0 1rem; color: #1b1b1b; }
+h1, h2, h3 { line-height: 1.25; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c8c8c8; padding: .4rem .7rem; text-align: left; vertical-align: top; }
+th { background: #f3f3f3; }
+code { background: #f3f3f3; padding: .1rem .3rem; border-radius: 3px; }
+pre { background: #f3f3f3; padding: 1rem; overflow-x: auto; border-radius: 4px; }
+pre code { padding: 0; background: none; }
+blockquote { margin-left: 0; padding-left: 1rem; border-left: 4px solid #c8c8c8; color: #444; }
+.admonition { border-left: 4px solid #0078d4; background: #eef6fc; padding: .5rem 1rem; margin: 1rem 0; }
+.admonition-title { font-weight: 600; margin: 0 0 .25rem; }
+nav { margin-bottom: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="index.html">All pages</a></nav>
+<h1>Overall Architecture</h1>
+<h2>Objective</h2>
+<p>The architecture separates platform responsibilities from team innovation.
+Every participant starts with the same governed healthcare quality data and
+business definitions, while each domain team builds Fabric items in its own
+workspace.</p>
+<pre><code class="language-mermaid">flowchart LR
+    B[BronzeLakehouse] --&gt; S[SilverLakehouse]
+    S --&gt; G[GoldLakehouse]
+    G --&gt; F[Multi-AMC Shared Foundation]
+    G --&gt; C[Multi-AMC CMS Stars Reference]
+    F --&gt; O[Multi-AMC Shared Ontology]
+    C --&gt; O
+
+    F --&gt; R[Readmissions Workspace]
+    F --&gt; M[Mortality Workspace]
+    F --&gt; H[Patient Experience Workspace]
+    F --&gt; P[Safety Workspace]
+    F --&gt; V[Preventive Care Workspace]
+    F --&gt; A[Access and Effectiveness Workspace]
+
+    R --&gt; E[Day 2 Executive Integration]
+    M --&gt; E
+    H --&gt; E
+    P --&gt; E
+    V --&gt; E
+    A --&gt; E
+    C --&gt; E
+    O --&gt; E
+</code></pre>
+<h2>Workspace responsibilities</h2>
+<table>
+<thead>
+<tr>
+<th>Workspace</th>
+<th>Responsibility</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AMC Data Engineering</td>
+<td>Bronze, Silver, Gold, source ingestion, transformation, validation</td>
+</tr>
+<tr>
+<td>AMC Modeling</td>
+<td>Governed shared semantic models and base Fabric IQ ontology</td>
+</tr>
+<tr>
+<td>Domain team workspaces</td>
+<td>Team-owned models, reports, agents, notebooks, experiments, and ontology extensions</td>
+</tr>
+<tr>
+<td>Executive integration workspace</td>
+<td>Cross-domain command center, integrated ontology, and executive agent</td>
+</tr>
+</tbody>
+</table>
+<h2>Data layers</h2>
+<h3>Bronze</h3>
+<p>Preserves raw Synthea, CMS, provider-reference, FHIR, and supplemental files.
+Bronze folders separate sources and retain ingestion metadata.</p>
+<h3>Silver</h3>
+<p>Publishes source-separated schemas:</p>
+<ul>
+<li><code>synthea</code></li>
+<li><code>cms</code></li>
+<li><code>reference</code></li>
+<li><code>synthetic</code></li>
+</ul>
+<h3>Gold</h3>
+<p>Publishes analysis-ready schemas:</p>
+<ul>
+<li><code>conformed</code>: shared dimensions</li>
+<li><code>quality</code>: domain event facts</li>
+<li><code>benchmark</code>: CMS results and benchmark distributions</li>
+<li><code>scorecard</code>: facility-period star-rating scorecard and model validation</li>
+</ul>
+<h2>Modeling layer</h2>
+<h3>Multi-AMC Shared Foundation</h3>
+<p>The governed Direct Lake model exposes all conformed dimensions, six domain
+facts, CMS results, benchmarks, and foundational measures. It is the default
+starting point for reports and team-owned semantic extensions.</p>
+<h3>Multi-AMC CMS Stars Reference</h3>
+<p>The smaller Direct Lake model provides consistent CMS measure definitions,
+facility results, benchmark distributions, published ratings, and clearly
+labeled demo scores.</p>
+<h3>MultiAMC_Shared_Ontology</h3>
+<p>The Fabric IQ ontology defines common entities and relationships. Teams extend
+this vocabulary rather than redefining foundational concepts.</p>
+<h2>Provenance rule</h2>
+<p>CMS facility-level aggregate results are authoritative public data. Synthea
+patients and supplemental patient-level events are synthetic. Reports and
+agents must not imply that synthetic patient events caused a real hospital's
+published CMS performance.</p>
+<h2>Portability</h2>
+<p>Data-engineering notebooks resolve lakehouses through the Variable Library.
+Semantic-model and ontology definitions contain Fabric data-source bindings,
+which must be rebound when deployed to a different tenant or workspace.</p>
+<p><strong>Next:</strong> <a href="04_lab1_notebook_ai.html">04 Lab 1: Explore the data with Copilot</a></p>
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+document.querySelectorAll("pre > code.language-mermaid").forEach((code) => {
+  const div = document.createElement("div");
+  div.className = "mermaid";
+  div.textContent = code.textContent;
+  code.parentElement.replaceWith(div);
+});
+mermaid.initialize({ startOnLoad: true });
+</script>
+</body>
+</html>

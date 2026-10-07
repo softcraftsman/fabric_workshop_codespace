@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<title>Workshop Instructions</title>
+<style>
+body { font: 16px/1.6 system-ui, sans-serif; max-width: 52rem; margin: 2rem auto; padding: 0 1rem; color: #1b1b1b; }
+h1, h2, h3 { line-height: 1.25; }
+table { border-collapse: collapse; margin: 1rem 0; }
+th, td { border: 1px solid #c8c8c8; padding: .4rem .7rem; text-align: left; vertical-align: top; }
+th { background: #f3f3f3; }
+code { background: #f3f3f3; padding: .1rem .3rem; border-radius: 3px; }
+pre { background: #f3f3f3; padding: 1rem; overflow-x: auto; border-radius: 4px; }
+pre code { padding: 0; background: none; }
+blockquote { margin-left: 0; padding-left: 1rem; border-left: 4px solid #c8c8c8; color: #444; }
+.admonition { border-left: 4px solid #0078d4; background: #eef6fc; padding: .5rem 1rem; margin: 1rem 0; }
+.admonition-title { font-weight: 600; margin: 0 0 .25rem; }
+nav { margin-bottom: 1.5rem; }
+</style>
+</head>
+<body>
+<nav><a href="index.html">All pages</a></nav>
+<h1>Workshop Instructions</h1>
+<ol>
+<li><a href="01_intro.html">Welcome: Build Confidence, Then Build Freely</a></li>
+<li><a href="02_environment_check.html">Environment Check</a></li>
+<li><a href="03_arch.html">Overall Architecture</a></li>
+<li><a href="04_lab1_notebook_ai.html">Lab 1: Explore the Data with Copilot in a Notebook</a></li>
+<li><a href="05_shared_platform.html">Shared Platform</a></li>
+<li><a href="06_cms_stars.html">CMS Overall Hospital Quality Star Rating Guidance</a></li>
+<li><a href="07_lab2_ai_ready_model.html">Lab 2: Make a Semantic Model AI-Ready</a></li>
+<li><a href="08_lab3_report.html">Lab 3: Build a Report with Copilot</a></li>
+<li><a href="09_lab4_data_agent.html">Lab 4: Build a Data Agent</a></li>
+<li><a href="10_open_hack_kickoff.html">Open Hack Kickoff</a></li>
+<li><a href="11_open_hack_challenges.html">Open Hack Challenges</a></li>
+</ol>
+<script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+document.querySelectorAll("pre > code.language-mermaid").forEach((code) => {
+  const div = document.createElement("div");
+  div.className = "mermaid";
+  div.textContent = code.textContent;
+  code.parentElement.replaceWith(div);
+});
+mermaid.initialize({ startOnLoad: true });
+</script>
+</body>
+</html>
